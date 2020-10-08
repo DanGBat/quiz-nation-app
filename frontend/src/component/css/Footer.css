@@ -1,0 +1,16 @@
+/*
+YELLOW SWATCH    rgb(245, 179, 46);
+BLUE SWATCH      rgb(38, 77, 154);
+*/
+
+.footer {
+    width: 100%;
+    display: block;
+    /* position: fixed; */
+    /* bottom: 0; */
+    padding: 20px 0px;
+    background-color: rgb(38, 77, 154);
+    border-top: 10px solid rgb(245, 179, 46);
+    color: rgb(245, 179, 46);
+    text-align: center;
+}

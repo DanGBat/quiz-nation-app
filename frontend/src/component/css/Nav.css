@@ -1,0 +1,31 @@
+/*
+YELLOW SWATCH    rgb(245, 179, 46);
+BLUE SWATCH      rgb(38, 77, 154);
+*/
+
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 5px solid rgb(245, 179, 46);
+    background-color: rgb(38, 77, 154);
+}
+
+nav ul {
+    text-transform: uppercase;
+    list-style: none;
+}
+
+nav ul a {
+    color: rgb(255, 190, 0);
+}
+
+nav li {
+    display: inline-block;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+}
