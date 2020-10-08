@@ -5,6 +5,7 @@ import './App.css';
 import Home from './container/Home';
 import Profile from './container/Profile';
 import PlayQuiz from './container/PlayQuiz';
+import Register from './container/Register';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/PlayQuiz" component={PlayQuiz} />
+          <Route exact path="/Register" component={Register} />
         </div>
       </Router>
     )
