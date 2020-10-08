@@ -1,0 +1,24 @@
+/*
+YELLOW SWATCH    rgb(245, 179, 46);
+BLUE SWATCH      rgb(38, 77, 154);
+*/
+
+h1, h2, h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: rgb(38, 77, 154);
+}
+
+h2 {
+    color: rgb(245, 179, 46);
+}
+
+.profileDiv, .scoreBoardDiv, .quizDiv {
+    min-height: 500px;
+}
+
+.scoreBoardDiv ul {
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
