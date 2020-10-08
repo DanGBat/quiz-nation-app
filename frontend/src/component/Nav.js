@@ -15,6 +15,9 @@ const Nav = () => {
                 <li>
                     <Link to='/PlayQuiz'>Quiz</Link>
                 </li>
+                <li>
+                    <Link to='/Register'>Register</Link>
+                </li>
             </ul>
         </nav>
     )
