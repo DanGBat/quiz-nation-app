@@ -19,7 +19,7 @@ class RegisterForm extends Component{
 
           const body = JSON.stringify({
               userName: this.state.username,
-              userEmai: this.state.email,
+              userEmail: this.state.email,
               userPassword: this.state.password
           });
 
