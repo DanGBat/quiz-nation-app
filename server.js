@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const User = require('./models/user')
 
 // enable dotenv for accessing sensitive data file
 // check files for .env file on the same directory level as server.js
@@ -39,14 +40,28 @@ app.get("/", (req, res) => {
 //     })
 // })
 
-app.post('/register', (req, res) => {
+app.post('/register', async(req, res) => {
     console.log(req.body);
+    try {
+        await User.create({
+            username: req.body.userName,
+            email: req.body.userEmail,
+            password: req.body.userPassword
+        })
+        res.json({
+            message: "Thank you for registering with Quiz Nation"
+        })
+    } catch (error) {
+        res.json({
+            message: "Sorry this email already exists"
+        })
+    }
     // const email: req.body.userEmail;
     // send a response to the front end console (browser) using the following
-    res.status(200).json({
-        message: "User Registered"
-    // send data to the database from here for users that are rgistering
-    })
+    // res.status(200).json({
+    //     message: "User Registered"
+    // // send data to the database from here for users that are rgistering
+    // })
 })
 
 //example function to access database

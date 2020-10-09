@@ -19,7 +19,7 @@ class RegisterForm extends Component{
 
           const body = JSON.stringify({
               userName: this.state.username,
-              userEmai: this.state.email,
+              userEmail: this.state.email,
               userPassword: this.state.password
           });
 
@@ -31,7 +31,11 @@ class RegisterForm extends Component{
 
           const res = await axios.post('/register', body, config)
           console.log(res.data)
-      }
+              this.setState({
+                  ...this.state,
+                  message: res.data.message
+              })
+      } 
 
       updateUser = (event) => {
           console.log(event.target.value)
@@ -57,6 +61,11 @@ class RegisterForm extends Component{
                         <input type="password" onChange={this.updateUser} name="password" />
                         <br></br>
                         <button type="submit">Register</button>
+                        {this.state.message
+                        ? <h1>{this.state.message}</h1>
+                        : null
+                        }
+                         
                     </form>
             </div>
         )
