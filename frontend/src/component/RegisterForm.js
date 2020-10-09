@@ -1,8 +1,6 @@
 import React, { Component} from 'react';
-import Header from "../component/Header";
-import Footer from "../component/Footer";
 import axios from 'axios';
-import './css/Styles.css';
+import './css/Register.css';
 
 
 class RegisterForm extends Component{
