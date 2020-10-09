@@ -1,0 +1,33 @@
+/*
+YELLOW SWATCH    rgb(245, 179, 46);
+BLUE SWATCH      rgb(38, 77, 154);
+*/
+
+.userTable {
+    font-family: arial, sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 1em;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 3% auto;
+}
+  
+.userTable th {
+    background-color: rgb(245, 179, 46);
+    color:rgb(38, 77, 154);
+    border: 1px solid rgb(161, 161, 161);
+    height: 3vw;
+    padding: 1% 2%;
+}
+
+.userTable td {
+    justify-content: flex-end;
+    border: 1px solid rgb(161, 161, 161);
+    height: 3vw;
+    padding-left: 2%;
+}
+  
+tr:nth-child(odd) {
+    background-color: rgb(234, 234, 234);
+}
