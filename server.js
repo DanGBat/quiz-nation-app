@@ -49,11 +49,11 @@ app.post('/register', async(req, res) => {
             password: req.body.userPassword
         })
         res.json({
-            message: "user is registerd"
+            message: "Thank you for registering with Quiz Nation"
         })
     } catch (error) {
         res.json({
-            message: "email taken"
+            message: "Sorry this email already exists"
         })
     }
     // const email: req.body.userEmail;
