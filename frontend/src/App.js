@@ -6,6 +6,7 @@ import Home from './container/Home';
 import Profile from './container/Profile';
 import PlayQuiz from './container/PlayQuiz';
 import Register from './container/Register';
+import Login from './container/Login';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/PlayQuiz" component={PlayQuiz} />
           <Route exact path="/Register" component={Register} />
+          <Route exact path="/Login" component={Login} />
         </div>
       </Router>
     )

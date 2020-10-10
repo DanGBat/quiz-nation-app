@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const User = require('./models/user')
+const quizUser = require('./models/user');
+// const QuizUser = require("./models/user");
 
 // enable dotenv for accessing sensitive data file
 // check files for .env file on the same directory level as server.js
@@ -43,7 +44,7 @@ app.get("/", (req, res) => {
 app.post('/register', async(req, res) => {
     console.log(req.body);
     try {
-        await User.create({
+        await quizUser.create({
             username: req.body.userName,
             email: req.body.userEmail,
             password: req.body.userPassword
@@ -62,6 +63,36 @@ app.post('/register', async(req, res) => {
     //     message: "User Registered"
     // // send data to the database from here for users that are rgistering
     // })
+})
+
+
+
+app.post ('/login', async(req, res) => {
+    console.log(req.body)
+    const user = await quizUser.find({ email: req.body.userEmail })
+    console.log(user);
+    //.length finds user in database 
+    if(user.length > 0) {
+        //if inputted password matches hashed password on database
+        // const isMatch = await quizUser.compare(req.body.userPassword, quizUser[0].password)
+        // console.log(isMatch);
+            res.json({
+                message: "you are logged in"
+            })
+        
+        //if match returns false
+        // else{
+        //     res.json({
+        //         message:"Sorry your email or password is wrong"
+        //     })
+        // }
+     //if user isn't found- sends to font end
+    }
+    else {
+        res.json({
+            message:"Sorry your email or password is wrong"
+        })
+    }
 })
 
 //example function to access database
