@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const quizUser = require('./models/user');
+const bcrypt = require("bcryptjs");
 // const QuizUser = require("./models/user");
 
 // enable dotenv for accessing sensitive data file
@@ -43,11 +44,12 @@ app.get("/", (req, res) => {
 
 app.post('/register', async(req, res) => {
     console.log(req.body);
+    const hashedPassword = await bcrypt.hash(req.body.userPassword, 8);
     try {
         await quizUser.create({
             username: req.body.userName,
             email: req.body.userEmail,
-            password: req.body.userPassword
+            password: hashedPassword
         })
         res.json({
             message: "Thank you for registering with Quiz Nation"
