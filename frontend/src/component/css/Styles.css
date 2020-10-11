@@ -13,7 +13,7 @@ h2 {
     color: rgb(245, 179, 46);
 }
 
-.profileDiv, .scoreBoardDiv, .quizDiv, .registerFormDiv, .quizQuestionDiv {
+.profileDiv, .scoreBoardDiv, .quizDiv, .registerFormDiv, .loginFormDiv, .quizQuestionDiv {
     min-height: 520px;
 }
 

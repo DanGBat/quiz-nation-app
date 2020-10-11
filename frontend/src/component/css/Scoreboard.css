@@ -10,22 +10,22 @@ BLUE SWATCH      rgb(38, 77, 154);
     font-size: 1em;
     border-collapse: collapse;
     width: 90%;
-    margin: 3% auto;
+    margin: 10px auto;
 }
   
 .userTable th {
     background-color: rgb(245, 179, 46);
     color:rgb(38, 77, 154);
     border: 1px solid rgb(161, 161, 161);
-    height: 3vw;
-    padding: 1% 2%;
+    height: 20px;
+    padding: 5px 8px;
 }
 
 .userTable td {
     justify-content: flex-end;
     border: 1px solid rgb(161, 161, 161);
-    height: 3vw;
-    padding-left: 2%;
+    height: 20px;
+    padding: 5px 8px;
 }
   
 tr:nth-child(odd) {

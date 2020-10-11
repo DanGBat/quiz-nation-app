@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/Styles.css';
+import './css/userScore.css';
 
 const UserScore = () => {
 

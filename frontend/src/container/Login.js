@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from "../component/Header";
+import HeaderNoLog from "../component/HeaderNoLog";
 import Footer from "../component/Footer";
 import LoginForm from '../component/LoginForm';
 
@@ -8,7 +8,7 @@ class Login extends Component{
     render(){
         return (
             <div>
-                <Header />
+                <HeaderNoLog />
 
                 <LoginForm />
 
