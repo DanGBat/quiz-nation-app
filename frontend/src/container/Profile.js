@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from "../component/Header";
+import HeaderWithLog from "../component/HeaderWithLog";
 import Footer from "../component/Footer";
 import UserScore from "../component/UserScore";
 
@@ -8,7 +8,7 @@ class Profile extends Component{
     render(){
         return (
             <div>
-                <Header />
+                <HeaderWithLog />
 
                 <UserScore />
 

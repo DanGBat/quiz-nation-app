@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/Styles.css';
 import './css/Scoreboard.css';
 
 const ScoreBoard = () => {

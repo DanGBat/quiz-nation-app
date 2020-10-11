@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import axios from 'axios';
-import './css/Register.css';
+import './css/Styles.css';
+import './css/Login.css';
 
 
 class LoginForm extends Component{
@@ -50,7 +51,7 @@ class LoginForm extends Component{
     render(){
         console.log(this.state)
         return (
-            <div className="registerFormDiv">
+            <div className="loginFormDiv">
                     <form onSubmit={this.sendData}>
                         <label>UserName</label>
                         <input type="text" onChange={this.updateUser} name="username" />

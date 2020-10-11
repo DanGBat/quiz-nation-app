@@ -8,3 +8,5 @@ node_modules
 
 .ai
 .psd
+
+.DS_Store
