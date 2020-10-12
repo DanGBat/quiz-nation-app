@@ -4,35 +4,10 @@ BLUE SWATCH      rgb(38, 77, 154);
 */
 
 .header {
-    width: 100%;
-}
-
-.topHeader {
-    width: 100%;
-    display: flex;
-
+    background-color: rgb(255, 255, 255);
+    text-align: center;
 }
 
 .header img {
-    padding: 7px 3px;
-}
-
-.logoDiv {
-    display: flex;
-    width: 80%;
-}
-
-.signinRegisterDiv {
-    display: flex;
-    justify-content: flex-end;
-    width: 20%;
-    padding: 5px 0px;
-}
-
-.registerIcon, .loginIcon, .profileIcon, .logoutIcon {
-    height: 20px;
-}
-
-.registerIcon:hover, .loginIcon:hover, .profileIcon:hover, .logoutIcon:hover {
-    filter: hue-rotate(45);
+    padding: 8px 0px;
 }
