@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const quizUser = require('./models/user');
 const bcrypt = require("bcryptjs");
+const cookiePaser = require("cookie-parser");
+const jwt = require('jsonwebtoken'); 
+
 // const QuizUser = require("./models/user");
 
 // enable dotenv for accessing sensitive data file
@@ -78,10 +81,23 @@ app.post ('/login', async(req, res) => {
         //if inputted password matches hashed password on database
         // const isMatch = await quizUser.compare(req.body.userPassword, quizUser[0].password)
         // console.log(isMatch);
+        const token = jwt.sign( {id: user[0]._id}, process.env.JWT_SECRET, { 
+            expiresIn: process.env.JWT_EXPIRES_IN
+        });
+        console.log("my token");
+        console.log(token);
+        const cookieOptions = {
+            expires: new Date(
+                Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+            ),
+            httpOnly: true
+        }
+        res.cookie('jwt', token, cookieOptions); 
             res.json({
                 message: "you are logged in"
-            })
+           })
         
+
         //if match returns false
         // else{
         //     res.json({
@@ -95,6 +111,10 @@ app.post ('/login', async(req, res) => {
             message:"Sorry your email or password is wrong"
         })
     }
+})
+
+app.get("/profile", async(req, res) => {
+    res.render("/profile")
 })
 
 //example function to access database
