@@ -62,7 +62,7 @@ class LoginForm extends Component{
                         <label>Password</label>
                         <input type="password" onChange={this.updateUser} name="password" />
                         <br></br>
-                        <button type="submit">login</button>
+                        <button type="submit">Sign In</button>
                         {this.state.message
                         ? <h1>{this.state.message}</h1>
                         : null
