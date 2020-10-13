@@ -1,4 +1,5 @@
-import React, { Component} from 'react';
+import React, { Component} from 'react'
+import { Redirect} from 'react-router-dom'
 import axios from 'axios';
 import './css/Styles.css';
 import './css/Login.css';
@@ -11,7 +12,8 @@ class LoginForm extends Component{
             username: '',
             email: '',
             password: '',
-            message: ''
+            message: '',
+            loggedIn: false
         };
       }
 
@@ -36,8 +38,15 @@ class LoginForm extends Component{
               this.setState({
                   ...this.state,
                   message: res.data.message
-              })
-      } 
+                })
+                this.setState({
+                    ...this.state,
+                    loggedIn: res.data.success
+                  })
+    }
+
+
+
 
       updateUser = (event) => {
           console.log(event.target.value)
@@ -50,7 +59,11 @@ class LoginForm extends Component{
   
     render(){
         console.log(this.state)
+        if (this.state.loggedIn == true) {
+            return <Redirect to="/profile" />
+        }
         return (
+            
             <div className="loginFormDiv">
                     <form onSubmit={this.sendData}>
                         <label>UserName</label>
