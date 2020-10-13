@@ -8,11 +8,11 @@ const resultsSchema = new mongoose.Schema({
         required: true
     },
     score: {
-        type: int,
+        type: integer,
         required: true
     },
     time: {
-        type: int,
+        type: integer,
         required: true
     }
 });
