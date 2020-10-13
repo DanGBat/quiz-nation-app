@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import { Redirect} from 'react-router-dom'
 import axios from 'axios';
 import './css/Styles.css';
 import './css/Register.css';
@@ -10,7 +11,8 @@ class RegisterForm extends Component{
         this.state =  {
             username: '',
             email: '',
-            password: ''
+            password: '',
+            registerd: false
         };
       }
 
@@ -36,6 +38,10 @@ class RegisterForm extends Component{
                   ...this.state,
                   message: res.data.message
               })
+              this.setState({
+                ...this.state,
+                registerd: res.data.success
+              })
       } 
 
       updateUser = (event) => {
@@ -49,6 +55,9 @@ class RegisterForm extends Component{
   
     render(){
         console.log(this.state)
+        if (this.state.registerd == true) {
+            return <Redirect to="/Login" />
+        }
         return (
             <div className="registerFormDiv">
                     <form onSubmit={this.sendData}>

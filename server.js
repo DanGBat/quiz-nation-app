@@ -55,7 +55,8 @@ app.post('/register', async(req, res) => {
             password: hashedPassword
         })
         res.json({
-            message: "Thank you for registering with Quiz Nation"
+            message: "Thank you for registering with Quiz Nation",
+            success: true
         })
     } catch (error) {
         res.json({
@@ -93,8 +94,9 @@ app.post ('/login', async(req, res) => {
             httpOnly: true
         }
         res.cookie('jwt', token, cookieOptions); 
-            res.json({
-                message: "you are logged in"
+            res.status(200).json({
+                // message: "you are logged in"
+                success: true
            })
         
 
