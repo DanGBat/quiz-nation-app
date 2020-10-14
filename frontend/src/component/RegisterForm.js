@@ -55,7 +55,7 @@ class RegisterForm extends Component{
   
     render(){
         console.log(this.state)
-        if (this.state.registerd == true) {
+        if (this.state.registerd  === true) {
             return <Redirect to="/Login" />
         }
         return (

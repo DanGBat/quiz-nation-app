@@ -59,7 +59,7 @@ class LoginForm extends Component{
   
     render(){
         console.log(this.state)
-        if (this.state.loggedIn == true) {
+        if (this.state.loggedIn === true) {
             return <Redirect to="/profile" />
         }
         return (
