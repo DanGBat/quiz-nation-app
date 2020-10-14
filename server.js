@@ -124,8 +124,8 @@ app.post ('/login', async(req, res) => {
 
 
 app.post("/isAuth",auth.isLoggedIn, async (req, res) => {
-    console.log(req.user.username)
-    console.log(req.user.email)
+    // console.log(req.user.username)
+    // console.log(req.user.email)
     if(req.user) {
         res.json({
             auth: true,
