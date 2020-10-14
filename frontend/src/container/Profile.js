@@ -12,7 +12,8 @@ class Profile extends Component{
     constructor(props) {
         super(props)
         this.state =  {
-            welcome: '',
+            userName: '',
+            userEmail: '',
             isloggedIn: false,
             pageisLoaded: false,
             logOut: false,
@@ -25,7 +26,9 @@ class Profile extends Component{
         this.setState({
             ...this.state,
             isLoggedIn: res.data.auth,
-            pageisLoaded: true
+            pageisLoaded: true,
+            userName: res.data.userName,
+            userEmail: res.data.userEmail
         })
     }
 
@@ -59,6 +62,10 @@ componentDidMount =() => {
         return (
             <div>
                 <HeaderWithLog />
+                <h1>Hello {this.state.userName}</h1>
+                <h1>Your Email Address is: </h1>
+                <h1>{this.state.userEmail}</h1>
+
                 <UserScore />
                 <button onClick={this.logout} type="submit">log Out</button>
                 <Footer />

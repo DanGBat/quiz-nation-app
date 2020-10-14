@@ -120,12 +120,17 @@ app.post ('/login', async(req, res) => {
     }
 })
 
-app.get("/profile", async(req, res) => {
-    res.render("/profile")
+
+
+
 app.post("/isAuth",auth.isLoggedIn, async (req, res) => {
+    console.log(req.user.username)
+    console.log(req.user.email)
     if(req.user) {
         res.json({
-            auth: true 
+            auth: true,
+            userName: req.user.username,
+            userEmail: req.user.email
         })
     }
     else{
@@ -135,11 +140,17 @@ app.post("/isAuth",auth.isLoggedIn, async (req, res) => {
     }
 })
 
+
+
+
+
+
 app.post("/logout",auth.logout, async(req, res) =>{
     res.json({
         logout: true
     })
 })
+
 //example function to access database
 // app.get("/getAllUsers", async (req, res) => {
 //     //grabs all users from Schema and stores them in const users
