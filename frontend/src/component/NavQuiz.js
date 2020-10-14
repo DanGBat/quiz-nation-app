@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './css/Nav.css';
 
-const Nav = () => {
+const NavQuiz = () => {
     return (
         <nav>
             <ul>
@@ -13,7 +13,7 @@ const Nav = () => {
                     <Link to='/Scoreboard'>Scoreboard</Link>
                 </li>
                 <li>
-                    {/* <Link to='/PlayQuiz'>Let's Quiz</Link> */}
+                    <Link to='/PlayQuiz'>Let's Quiz</Link>
                 </li>
                 {/* <li>
                     <Link to='/Register'>Register</Link>
@@ -26,4 +26,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default NavQuiz
