@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from "./Nav";
+import NavQuiz from "./NavQuiz";
 import './css/Header.css';
 import { Link } from 'react-router-dom';
 import logo from "../images/quizNationLogo.png";
@@ -59,7 +59,7 @@ class Header extends Component{
 
                     </div>
                 </div>
-                <Nav />
+                <NavQuiz />
                 
             </div>
         )
