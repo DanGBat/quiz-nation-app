@@ -2,9 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const quizUser = require('./models/user');
+const auth = require('./middleware/auth');
 const bcrypt = require("bcryptjs");
 const cookiePaser = require("cookie-parser");
 const jwt = require('jsonwebtoken'); 
+
 
 // const QuizUser = require("./models/user");
 
@@ -18,6 +20,7 @@ const app = express();
 // if you want to pass data from forms to the front end, you need the following two lines
 app.use(express.urlencoded());
 app.use(express.json());
+app.use(cookiePaser () ); 
 
 
 //the object of booleans passed in is to remove errors
@@ -44,6 +47,8 @@ app.get("/", (req, res) => {
 //         Team2: "Spurs"
 //     })
 // })
+
+
 
 app.post('/register', async(req, res) => {
     console.log(req.body);
@@ -101,7 +106,7 @@ app.post ('/login', async(req, res) => {
         
 
         //if match returns false
-        // else{
+        // else
         //     res.json({
         //         message:"Sorry your email or password is wrong"
         //     })
@@ -117,8 +122,24 @@ app.post ('/login', async(req, res) => {
 
 app.get("/profile", async(req, res) => {
     res.render("/profile")
+app.post("/isAuth",auth.isLoggedIn, async (req, res) => {
+    if(req.user) {
+        res.json({
+            auth: true 
+        })
+    }
+    else{
+        res.json({
+            auth: false
+        })
+    }
 })
 
+app.post("/logout",auth.logout, async(req, res) =>{
+    res.json({
+        logout: true
+    })
+})
 //example function to access database
 // app.get("/getAllUsers", async (req, res) => {
 //     //grabs all users from Schema and stores them in const users
