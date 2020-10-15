@@ -5,8 +5,7 @@ import './css/QuizPlay.css';
 
 const QuizPlay = () => {
 
-//!
-const quizzerName = "Peter";
+
 const time = 80085;
 //!
 
@@ -24,6 +23,10 @@ const time = 80085;
   const [ finalAnswers, setFinalAnswers ] = useState();
   //SET STATE FOR SCORE - DEFAULT AT ZERO
   const [ score, setScore ] = useState(0);
+
+
+  //FINDS USERNAME FROM LOGGED IN USER
+  // const [Name, setName ] = useState('')
   
 
 //FUNCTION TO UPDATE THE OPTIONS THE USER HAS CHOSEN
@@ -78,11 +81,15 @@ const time = 80085;
 
 //SEND SCORE / TIME TO DATABASE AND SHOW RESULTS MAYBE
 //SET THE DATA TO JSON
+
+//GET THE USERNAME OF THE LOGGED IN USER SENDS IT WITH THE QUIZ RESULTS
+const res1 = await axios.post('/isAuthQuiz')
+console.log(res1.data)
     const body = JSON.stringify({
-        name: quizzerName,
-        score: finalScore,
-        time: time
-});
+        userName: res1.data.user,
+        userScore: finalScore,
+        userTime: time
+    });
     
 //PASS IT AS A HEADER
     const config = {
@@ -91,7 +98,10 @@ const time = 80085;
       }
     }
     
-    const res = await axios.post('/quizSubmit', body, config);
+    const res = await axios.post('/quizSubmit', body, config); 
+    console.log(res.data)
+
+
 
     console.log(`Here is the body: ${body}`);        
 }
