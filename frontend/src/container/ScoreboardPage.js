@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import HeaderNoLog from "../component/HeaderNoLog";
 // import HeaderWithLog from "../component/HeaderWithLog";
 import Footer from "../component/Footer";
-import Scoreboard from "../component/Scoreboard";
+import ScoreBoard from "../component/ScoreBoard";
 
 class ScoreboardPage extends Component{
     
@@ -11,7 +11,7 @@ class ScoreboardPage extends Component{
             <div>
                 <HeaderNoLog />
 
-                <Scoreboard />
+                <ScoreBoard />
 
                 <Footer />
             </div>

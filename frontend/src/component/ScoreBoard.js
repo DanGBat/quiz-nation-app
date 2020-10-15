@@ -1,31 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './css/Styles.css';
 import './css/Scoreboard.css';
+import axios from 'axios';
 
 const Scoreboard = () => {
 
-    //! CODE TO FIND TOP TEN USERS IN DATABASE AND THEN PASS THEM IN BELOW
+const [quizResults, setQuizResults ] = useState([])
     //! CODE BELOW SIMILAR BUT FOR WHEN WE HAVE SETUP THE DATABASE
 
+const getUsers = async ()  => {
+    const res = await axios.get('/results')
+    console.log(res.data)
+    setQuizResults(res.data.users)
+}
 
-//     <div className="scoreBoardDiv">
-//      <h3>Leaderboard</h3>
-//         <tr>
+useEffect(() => {
+    getUsers()
+}, [])
 //           <th>Name </th>
 //           <th>Score </th>
 //           <th>Time </th>
 //         </tr>
-        
-//         {{#each dbUsers}}
-//         <tr>
-            
-//             <td>{{this.name}} </td>
-//             <td>{{this.score}} </td>
-//             <td>{{this.time}} </td>
-            
+
+const nameResults = quizResults.length > 0 && quizResults.map((user, index) => {
+    return <li key={index}>{user.name}</li>
+})
+
+const scoreResults = quizResults.length > 0 && quizResults.map((user, index) => {
+    return <li key={index}>{user.score}</li>
+})
+const timeResults = quizResults.length > 0 && quizResults.map((user, index) => {
+    return <li key={index}>{user.time}</li>
+})
+
 //         </tr>
 //         {{/each}}
 //     </table>
+
 
     return (
     <div className="scoreBoardDiv">
@@ -39,12 +50,12 @@ const Scoreboard = () => {
           <th>Name </th>
           <th>Score </th>
           <th>Time </th>
-        </tr>
+        </tr> 
      
         <tr>    
-            <td>Marshall Mathers </td>
-            <td>40pts </td>
-            <td>1:35 </td>    
+            <td>{nameResults}</td>
+            <td>{scoreResults}</td>
+            <td>{timeResults}</td>
         </tr>
         <tr>    
             <td>Yogi Bear </td>
@@ -97,7 +108,7 @@ const Scoreboard = () => {
             <td>2:10 </td>    
         </tr>
         </tbody>
-        </table>
+        </table> 
     </div>
     )
 }
