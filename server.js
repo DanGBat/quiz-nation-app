@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const auth = require('./middleware/auth');
 
 
+
 // const QuizUser = require("./models/user");
 
 // enable dotenv for accessing sensitive data file
@@ -50,7 +51,17 @@ app.get("/", (req, res) => {
 // })
 
 
-
+app.get('/results', async (req,res) => {
+    try {
+        const users = await quizResults.find()
+        res.json({
+            users: users
+        })
+    } catch (error) {
+        console.log(error)
+  
+    }
+})
 app.post('/register', async(req, res) => {
     console.log(req.body);
     const hashedPassword = await bcrypt.hash(req.body.userPassword, 8);
