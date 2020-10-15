@@ -2,10 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const quizUser = require('./models/user');
-const auth = require('./middleware/auth');
+const quizResults = require('./models/results');
 const bcrypt = require("bcryptjs");
 const cookiePaser = require("cookie-parser");
 const jwt = require('jsonwebtoken'); 
+const auth = require('./middleware/auth');
 
 
 // const QuizUser = require("./models/user");
@@ -18,7 +19,7 @@ dotenv.config({ path: './.env' });
 const app = express();
 
 // if you want to pass data from forms to the front end, you need the following two lines
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookiePaser () ); 
 
@@ -74,7 +75,25 @@ app.post('/register', async(req, res) => {
     //     message: "User Registered"
     // // send data to the database from here for users that are rgistering
     // })
-})
+});
+
+app.post('/quizSubmit', async (req, res) => {
+    console.log(req.body);
+    try {
+        await quizResults.create({
+            name: "DannyTest",
+            score: req.body.score,
+            time: 1000
+        })
+        res.json({
+            message: "Thank you for playing"
+        })
+    } catch (error) {
+        res.json({
+            message: "ERROR"
+        })
+    }
+});
 
 
 
@@ -123,7 +142,7 @@ app.post ('/login', async(req, res) => {
 
 
 
-app.post("/isAuth",auth.isLoggedIn, async (req, res) => {
+app.post("/isAuth", auth.isLoggedIn, async (req, res) => {
     // console.log(req.user.username)
     // console.log(req.user.email)
     if(req.user) {
@@ -145,7 +164,7 @@ app.post("/isAuth",auth.isLoggedIn, async (req, res) => {
 
 
 
-app.post("/logout",auth.logout, async(req, res) =>{
+app.post("/logout", auth.logout, async(req, res) =>{
     res.json({
         logout: true
     })

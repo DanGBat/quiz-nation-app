@@ -2,19 +2,16 @@ import React, { Component } from 'react';
 import HeaderNoLog from "../component/HeaderNoLog";
 // import HeaderWithLog from "../component/HeaderWithLog";
 import Footer from "../component/Footer";
-import HomeText from "../component/HomeText";
+import Scoreboard from "../component/Scoreboard";
 
-
-
-
-class Home extends Component{
+class ScoreboardPage extends Component{
     
     render(){
         return (
             <div>
                 <HeaderNoLog />
 
-                <HomeText />
+                <Scoreboard />
 
                 <Footer />
             </div>
@@ -22,4 +19,4 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default ScoreboardPage;

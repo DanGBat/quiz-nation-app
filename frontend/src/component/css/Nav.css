@@ -4,7 +4,7 @@ BLUE SWATCH      rgb(38, 77, 154);
 */
 
 
-ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -13,22 +13,22 @@ ul {
     background-color: rgb(38, 77, 154);
   }
   
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover:not(.active) {
-    background-color: rgb(245, 179, 46);
-  }
-  
-  .active {
-    background-color: rgb(225, 160, 3335);
-  }
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+  background-color: rgb(245, 179, 46);
+}
+
+/* .active {
+  background-color: rgb(225, 160, 3335);
+} */

@@ -11,7 +11,7 @@ import { Redirect} from 'react-router-dom'
 import Profile from '../container/Profile';
 
 
-class Header extends Component{
+class HeaderWithLog extends Component{
 
     // THIS CODE LOGS A USER OUT WITH REMOVING THE JWT AUTHENTICATION 
     // DOESNT FUNCTION ON THE HEADER YET
@@ -66,4 +66,4 @@ class Header extends Component{
     }
 }
 
-export default Header;
+export default HeaderWithLog;
