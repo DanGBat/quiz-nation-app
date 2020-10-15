@@ -8,7 +8,7 @@ import logoutIcon from "../images/logoutIcon.png";
 import { Component } from 'react';
 import axios from 'axios';
 import { Redirect} from 'react-router-dom'
-import Profile from '../container/Profile';
+// import Profile from '../container/Profile';
 
 
 class HeaderWithLog extends Component{
