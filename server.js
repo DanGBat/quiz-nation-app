@@ -77,15 +77,16 @@ app.post('/register', async(req, res) => {
     // })
 });
 
-app.post('/quizSubmit', async (req, res) => {
-    console.log(`the req.body.quizzerName from the backend is ${req.body.quizzerName}`);
-    console.log(`the req.body.score from the backend is ${req.body.score}`);
-    console.log(`the req.body.time from the backend is ${req.body.time}`);
+app.post('/quizSubmit', async(req, res) => {
+    console.log(`the req.body.quizzerName from the backend is ${req.body.userName}`);
+    console.log(`the req.body.score from the backend is ${req.body.userScore}`);
+    console.log(`the req.body.time from the backend is ${req.body.userTime}`);
+
     try {
         await quizResults.create({
-            name: req.body.quizzerName,
-            score: req.body.score,
-            time: req.body.time
+            name: req.body.userName,
+            score: req.body.userScore,
+            time: req.body.userTime
         })
         res.json({
             message: "Thank you for playing"
@@ -144,6 +145,7 @@ app.post ('/login', async(req, res) => {
 
 
 
+
 app.post("/isAuth", auth.isLoggedIn, async (req, res) => {
     // console.log(req.user.username)
     // console.log(req.user.email)
@@ -152,6 +154,22 @@ app.post("/isAuth", auth.isLoggedIn, async (req, res) => {
             auth: true,
             userName: req.user.username,
             userEmail: req.user.email
+        })
+    }
+    else{
+        res.json({
+            auth: false,
+        })
+    }
+})
+
+app.post("/isAuthQuiz", auth.isLoggedIn, async (req, res) => {
+    // console.log(req.user.username)
+    // console.log(req.user.email)
+    if(req.user) {
+        res.json({
+            // auth: true,
+            user: req.user.username
         })
     }
     else{
