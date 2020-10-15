@@ -11,11 +11,11 @@ const HeaderNoLog = () => (
     <div className="header">
         <div className="topHeader">
             <div className="logoDiv">
-                <Link to="/"><img src={logo} alt="logo" className="mainLogo" /></Link>
+                <Link to="/"><img src={logo} alt="Logo" className="mainLogo" /></Link>
             </div>
             <div className="signinRegisterDiv">
-                <Link to="/Register"><img src={registerIcon} alt="register" className="registerIcon" /></Link>
-                <Link to="/Login"><img src={loginIcon} alt="login" className="loginIcon" /></Link>
+                <Link to="/Register"><img src={registerIcon} alt="Register" className="registerIcon" /></Link>
+                <Link to="/Login"><img src={loginIcon} alt="Login" className="loginIcon" /></Link>
             </div>
         </div>
         <Nav />

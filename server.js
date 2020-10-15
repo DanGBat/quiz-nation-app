@@ -78,12 +78,14 @@ app.post('/register', async(req, res) => {
 });
 
 app.post('/quizSubmit', async (req, res) => {
-    console.log(req.body);
+    console.log(`the req.body.quizzerName from the backend is ${req.body.quizzerName}`);
+    console.log(`the req.body.score from the backend is ${req.body.score}`);
+    console.log(`the req.body.time from the backend is ${req.body.time}`);
     try {
         await quizResults.create({
-            name: "DannyTest",
+            name: req.body.quizzerName,
             score: req.body.score,
-            time: 1000
+            time: req.body.time
         })
         res.json({
             message: "Thank you for playing"

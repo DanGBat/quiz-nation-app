@@ -16,6 +16,6 @@ const resultsSchema = new mongoose.Schema({
     }
 });
 
-const QuizResults = mongoose.model('Result', resultsSchema);
+const quizResults = mongoose.model('Result', resultsSchema);
 
-module.exports = QuizResults;  
+module.exports = quizResults;  

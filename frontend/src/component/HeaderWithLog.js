@@ -6,8 +6,8 @@ import logo from "../images/quizNationLogo.png";
 import profileIcon from "../images/profileIcon.png";
 import logoutIcon from "../images/logoutIcon.png";
 import { Component } from 'react';
-import axios from 'axios';
-import { Redirect} from 'react-router-dom'
+// import axios from 'axios';
+// import { Redirect} from 'react-router-dom'
 // import Profile from '../container/Profile';
 
 
@@ -49,13 +49,13 @@ class HeaderWithLog extends Component{
             <div className="header">
                 <div className="topHeader">
                     <div className="logoDiv">
-                        <Link to="/"><img src={logo} className="mainLogo" /></Link>
+                        <Link to="/"><img src={logo} alt="Logo" className="mainLogo" /></Link>
                     </div>
                     <div className="signinRegisterDiv">
-                        <Link to="/Profile"><img src={profileIcon} className="profileIcon" /></Link>
+                        <Link to="/Profile"><img src={profileIcon} alt="Profile" className="profileIcon" /></Link>
 
                         {/* doesnt't function yet */}
-                        <Link to="/"><img src={logoutIcon} className="logoutIcon" /></Link>
+                        <Link to="/"><img src={logoutIcon} alt="Logout" className="logoutIcon" /></Link>
 
                     </div>
                 </div>
