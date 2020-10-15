@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './css/QuizPlay.css';
-// import Timer from './Timer';
 
 
 const QuizPlay = () => {
 
 //!
-const emailFromLoggin = "test@test.com";
-const time = 1234;
+const quizzerName = "Peter";
+const time = 80085;
 //!
 
 //SET THE STATE OF THE CATEGORY AND DIFFICULTY
@@ -25,8 +24,6 @@ const time = 1234;
   const [ finalAnswers, setFinalAnswers ] = useState();
   //SET STATE FOR SCORE - DEFAULT AT ZERO
   const [ score, setScore ] = useState(0);
-  //SET STATE FOR SCORE TO BE DISPLAYED
-  const [ readyForScores, setReadyForScores ] = useState(false);
   
 
 //FUNCTION TO UPDATE THE OPTIONS THE USER HAS CHOSEN
@@ -70,66 +67,60 @@ const time = 1234;
   const finishQuiz = async(event) => {
     event.preventDefault();
     let finalScore = 0;
-//IF ANY OF THE ARRAY MATCH INCREMENT SCORE
-    for (var i = 0; i < 10; i++){
-      let userAnswers = { ...finalAnswers};
-      let rightAnswers = allQuizData.map();
-      if (userAnswers.value[i] === rightAnswers.correct_answer[i]) {
-        finalScore++;
+    let userAnswers = { ...finalAnswers};
+    let rightAnswers = allQuizData.map(object => object.correct_answer);
+        for (var i = 0; i < 10; i++){
+          if (userAnswers[i] === rightAnswers[i]) {
+            finalScore++;
       }
+      setScore(finalScore);
     }
-  
-    setScore(finalScore);
-    setReadyForScores(true);
 
 //SEND SCORE / TIME TO DATABASE AND SHOW RESULTS MAYBE
 //SET THE DATA TO JSON
     const body = JSON.stringify({
-        name: emailFromLoggin,
-        score: score,
+        name: quizzerName,
+        score: finalScore,
         time: time
 });
+    
 //PASS IT AS A HEADER
     const config = {
       headers: {
         'Content-Type': 'application/json'
       }
     }
-
+    
     const res = await axios.post('/quizSubmit', body, config);
 
-    console.log(res.data);
-    console.log(body);
-        
+    console.log(`Here is the body: ${body}`);        
 }
 
-  console.log("Below state: allQuizdata");
-  console.log(allQuizData);
-  console.log("Below state: finalAnswers");
-  console.log(finalAnswers);
-  console.log("Below state: score");
-  console.log(score);
+  // console.log("Below state: allQuizdata");
+  // console.log(allQuizData);
+  // console.log("Below state: finalAnswers");
+  // console.log(finalAnswers);
+  // console.log("Below state: score");
+  // console.log(score);
   // console.log("Below state: userFinalScore");
   // console.log(userFinalScore);
 
+
+//IF WE'RE READY FOR THE QUIZ - DO ALL THE BELOW TO ORGANISE QUESTIONS AND ANSWERS
   let questions = null;
   if (readyForQuiz) {
     questions = allQuizData.map((quests, qindex) => {
     const answers = quests.shuffledAnswers.map((answ, aindex) => {
-
         return (
           <li key={aindex}>
-            
             <label className = "container">{answ}
             <input value={answ} type="checkbox" onChange={(event) =>
               saveAnswers(qindex, event.target.value)} />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
               </label>
           </li>
-
         )
       });
-
         return (
           <li key={qindex}>
             <div className="questionBox">
@@ -141,24 +132,22 @@ const time = 1234;
               </ul>
             </div>
           </li>
-
         )
       });
     }
 
+// IF WE'RE READY FOR THE QUIZ - DISPLAY IT
+// IF NOT - DISPLAY THE CHOOSE OPTIONS PAGE
         return (
           <div className="quizPlayForm">
-            {readyForQuiz ? (readyForScores ? score :
+            {readyForQuiz ?
                     <form onSubmit={finishQuiz}>
                         <ul>
                             {questions}
                         </ul>
                         <button type="submit">Finish Quiz</button>
-                    </form> 
-
-                )
+                    </form>
                 :
-
               <form className="quizChoiceForm" onSubmit={getAPI}>
                 <label>
                   <h3>Please choose your difficulty:</h3>
