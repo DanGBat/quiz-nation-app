@@ -2,7 +2,7 @@ import React from 'react';
 import './css/Styles.css';
 import './css/Scoreboard.css';
 
-const ScoreBoard = () => {
+const Scoreboard = () => {
 
     //! CODE TO FIND TOP TEN USERS IN DATABASE AND THEN PASS THEM IN BELOW
     //! CODE BELOW SIMILAR BUT FOR WHEN WE HAVE SETUP THE DATABASE
@@ -32,7 +32,8 @@ const ScoreBoard = () => {
         
         <h1>Our Top Ten Quizzers</h1>
         
-        <table class="userTable">
+        <table className="userTable">
+        <tbody>
         <tr>
           
           <th>Name </th>
@@ -95,10 +96,11 @@ const ScoreBoard = () => {
             <td>0pts </td>
             <td>2:10 </td>    
         </tr>
+        </tbody>
         </table>
     </div>
     )
 }
 
-export default ScoreBoard;
+export default Scoreboard;
 

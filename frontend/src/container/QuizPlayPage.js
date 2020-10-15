@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import HeaderWithLog from "../component/HeaderWithLog";
-import Quiz from "../component/Quiz";
+import QuizPlay from "../component/QuizPlay";
 import Footer from "../component/Footer";
+import Timer from "../component/Timer";
 
-class PlayQuiz extends Component{
+class QuizGetPage extends Component{
     
     render(){
         return (
             <div>
                 <HeaderWithLog />
+                <Timer />
 
-                <Quiz />
+                <QuizPlay />
 
                 <Footer />
             </div>
@@ -18,4 +20,4 @@ class PlayQuiz extends Component{
     }
 }
 
-export default PlayQuiz;
+export default QuizGetPage;

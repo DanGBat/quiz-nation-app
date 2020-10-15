@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import HeaderNoLog from "../component/HeaderNoLog";
 import Footer from "../component/Footer";
-import RegisterForm from '../component/RegisterForm';
+import LoginForm from '../component/LoginForm';
 
-class Register extends Component{
+class LoginPage extends Component{
     
     render(){
         return (
             <div>
                 <HeaderNoLog />
 
-                <RegisterForm />
+                <LoginForm />
 
                 <Footer />
             </div>
@@ -18,4 +18,4 @@ class Register extends Component{
     }
 }
 
-export default Register;
+export default LoginPage;
