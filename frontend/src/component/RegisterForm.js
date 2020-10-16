@@ -60,6 +60,7 @@ class RegisterForm extends Component{
         }
         return (
             <div className="registerFormDiv">
+                <h1>Please fill in your registration details</h1>
                     <form onSubmit={this.sendData}>
                         <label>UserName</label>
                         <input type="text" onChange={this.updateUser} name="username" />

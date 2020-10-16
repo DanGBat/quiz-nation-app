@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import HeaderWithLog from "../component/HeaderWithLog";
 import Footer from "../component/Footer";
-import UserScore from "../component/UserScore";
 import axios from 'axios';
 import { Redirect} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import profilePic from "../images/profilePic.jpg";
+import '../component/css/Styles.css';
+import '../component/css/Profile.css';
 
 
 class ProfilePage extends Component{
@@ -56,11 +59,21 @@ componentDidMount =() => {
         return (
             <div>
                 <HeaderWithLog />
-                <h1>Hello {this.state.userName}</h1>
-                <h1>Your Email Address is: </h1>
-                <h1>{this.state.userEmail}</h1>
+            
+                <h1>Hi {this.state.userName}</h1>
+                <div className="profileBox">
+                
+                    <div className="profilePicture">
+                    <Link to="/"><img src={profilePic} alt="Profile" className="Profile" /></Link>
+                    </div>
 
-                <UserScore />
+                    <div className="profileInformation">
+                        <h5>Email: {this.state.userEmail}</h5>
+                        <h5>Hometown:</h5>
+                        <h5>Favourite Subject:</h5>
+                        <h5>Hobbies:</h5>
+                    </div>
+                </div>
                 <button onClick={this.logout} type="submit">log Out</button>
                 <Footer />
             </div>

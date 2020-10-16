@@ -13,7 +13,7 @@ const Nav = () => {
                     <Link to='/Scoreboard'>Scoreboard</Link>
                 </li>
                 <li>
-                    {/* <Link to='/PlayQuiz'>Let's Quiz</Link> */}
+                    <Link to='/PlayQuiz'>Let's Quiz</Link>
                 </li>
                 {/* <li>
                     <Link to='/Register'>Register</Link>

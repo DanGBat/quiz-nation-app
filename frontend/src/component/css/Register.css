@@ -8,6 +8,10 @@ BLUE SWATCH      rgb(38, 77, 154);
     margin: 3% auto;
 }
 
+.registerFormDiv h1{
+    text-align: center;
+}
+
 label {
     margin-top: 20px;
     color: rgb(38, 77, 154);

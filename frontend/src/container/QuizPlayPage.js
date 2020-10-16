@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import HeaderWithLog from "../component/HeaderWithLog";
 import QuizPlay from "../component/QuizPlay";
 import Footer from "../component/Footer";
-import Timer from "../component/Timer";
 
 class QuizGetPage extends Component{
     
@@ -10,7 +9,6 @@ class QuizGetPage extends Component{
         return (
             <div>
                 <HeaderWithLog />
-                <Timer />
 
                 <QuizPlay />
 
