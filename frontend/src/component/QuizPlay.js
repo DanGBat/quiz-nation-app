@@ -203,7 +203,7 @@ const finishedQuizText = (`You scored ${score} which took ${quizTimer} seconds`)
                     <form onSubmit={finishQuiz}>
                       <div className="timerDiv">
                         <h3>QUIZ TIMER</h3>
-                        <p>{formatTime()}</p>
+                        <h1>{formatTime()}</h1>
                         </div>
                         <ul>
                             {questions}

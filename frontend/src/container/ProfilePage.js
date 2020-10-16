@@ -54,7 +54,7 @@ componentDidMount =() => {
 
     render(){
         if (!this.state.isLoggedIn && this.state.pageisLoaded ) {
-            return <Redirect to="/" />
+            return <Redirect to="/Register" />
         }
         return (
             <div>
@@ -73,8 +73,10 @@ componentDidMount =() => {
                         <h5>Favourite Subject:</h5>
                         <h5>Hobbies:</h5>
                     </div>
-                </div>
+                <div className="profileButtonDiv">
                 <button onClick={this.logout} type="submit">log Out</button>
+                </div>
+                </div>
                 <Footer />
             </div>
         )
