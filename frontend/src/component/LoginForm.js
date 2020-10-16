@@ -65,6 +65,7 @@ class LoginForm extends Component{
         return (
             
             <div className="loginFormDiv">
+                <h1>Login to achieve the full QuizNation Experience</h1>
                     <form onSubmit={this.sendData}>
                         <label>UserName</label>
                         <input type="text" onChange={this.updateUser} name="username" />

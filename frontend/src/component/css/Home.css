@@ -1,9 +1,24 @@
+/*
+YELLOW SWATCH    rgb(245, 179, 46);
+BLUE SWATCH      rgb(38, 77, 154);
+*/
 
-h1, h2, h3 {
-    text-align: left;
-    padding: 0px 30px;
+.homeTextDiv {
+    width: 80%;
+    margin: 2% auto;
 }
 
-p {
-    padding: 0px 30px;
+.homeTextDiv h1 {
+    text-align: center;
+}
+
+.homeTextDiv h2, .homeTextDiv h3 {
+    text-align: left;
+    padding: 0px 20px;
+}
+
+.homeTextDiv p {
+    text-align: left;
+    font-size: 12pt;
+    padding: 0px 20px;
 }

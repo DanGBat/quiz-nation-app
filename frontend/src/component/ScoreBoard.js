@@ -41,7 +41,7 @@ const timeResults = quizResults.length > 0 && quizResults.map((user, index) => {
     return (
     <div className="scoreBoardDiv">
         
-        <h1>Our Top Ten Quizzers</h1>
+        <h1>Our Top Quizzers</h1>
         
         <table className="userTable">
         <tbody>
@@ -57,56 +57,7 @@ const timeResults = quizResults.length > 0 && quizResults.map((user, index) => {
             <td>{scoreResults}</td>
             <td>{timeResults}</td>
         </tr>
-        <tr>    
-            <td>Yogi Bear </td>
-            <td>36pts </td>
-            <td>2:24 </td>    
-        </tr>
-        <tr>    
-            <td>Denzel Washington </td>
-            <td>32pts </td>
-            <td>1:14 </td>    
-        </tr>
-        <tr>    
-            <td>Donald Trump </td>
-            <td>31pts </td>
-            <td>2:14 </td>    
-        </tr>
-        <tr>    
-            <td>Father Christmas </td>
-            <td>40pts </td>
-            <td>2:54 </td>    
-        </tr>
-        <tr>    
-            <td>Adam of Eternia </td>
-            <td>27pts </td>
-            <td>1:19 </td>    
-        </tr>
-        <tr>    
-            <td>Tony Montana </td>
-            <td>22pts </td>
-            <td>2:11 </td>    
-        </tr>
-        <tr>    
-            <td>Donald Trump </td>
-            <td>22pts </td>
-            <td>3:18 </td>    
-        </tr>
-        <tr>    
-            <td>Butch Coolidge </td>
-            <td>18pts </td>
-            <td>1:14 </td>    
-        </tr>
-        <tr>    
-            <td>Tooth Fairy </td>
-            <td>5pts </td>
-            <td>3:14 </td>    
-        </tr>
-        <tr>    
-            <td>Frank The Tank </td>
-            <td>0pts </td>
-            <td>2:10 </td>    
-        </tr>
+        
         </tbody>
         </table> 
     </div>

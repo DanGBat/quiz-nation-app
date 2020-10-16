@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+// import {Redirect} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import ScoreboardPage from './container/ScoreboardPage';
 import axios from 'axios';
 import './css/QuizPlay.css';
 
 
 const QuizPlay = () => {
-
-
-const time = 80085;
-//!
 
 //SET THE STATE OF THE CATEGORY AND DIFFICULTY
   const [ selectOptions, setSelectOptions ] = useState(
@@ -19,14 +19,54 @@ const time = 80085;
 //SET THE STATE OF THE allQuizData VARIABLE
   const [ allQuizData, setAllQuizData ] = useState();
   const [ readyForQuiz, setReadyForQuiz ] = useState(false);
-  // SET STATE OF FINAL ANSWERS
+// SET STATE OF FINAL ANSWERS
   const [ finalAnswers, setFinalAnswers ] = useState();
-  //SET STATE FOR SCORE - DEFAULT AT ZERO
+// SET STATE FOR SCORE - DEFAULT AT ZERO
   const [ score, setScore ] = useState(0);
+// SET STATE FOR QUIZ FINISHED
+  const [ quizFinished, setQuizFinished ] = useState(false);
+// SET STATE FOR TIMER
+const [quizTimer, setQuizTimer] = useState(0);
+const [isActive, setIsActive] = useState(false);
+const [isPaused, setIsPaused] = useState(false);
+const increment = useRef(null);
+
+//! TIMER GUBBINGS
+
+const startTimer = () => {
+    setIsActive(true);
+    setIsPaused(true);
+    increment.current = setInterval(() => {
+      setQuizTimer((timer) => timer + 1)
+    }, 1000);
+
+    console.log(increment.current);
+};
+
+const pauseTimer = () => {
+    clearInterval(increment.current);
+    setIsPaused(false);        
+};
+
+const formatTime = () => {
+    const getSeconds = `0${(quizTimer % 60)}`.slice(-2);
+    const minutes = `${Math.floor(quizTimer / 60)}`;
+    const getMinutes = `0${minutes % 60}`.slice(-2);
+    // const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
+
+    return `${getMinutes} : ${getSeconds}`;
+};
+
+let timerID = useRef(null);
+
+useEffect(()=>{ 
+    return ()=>{
+        clearTimeout(timerID);
+    }
+},[]);
 
 
-  //FINDS USERNAME FROM LOGGED IN USER
-  // const [Name, setName ] = useState('')
+//! TIMER GUBBINGS
   
 
 //FUNCTION TO UPDATE THE OPTIONS THE USER HAS CHOSEN
@@ -56,6 +96,8 @@ const time = 80085;
 
     setAllQuizData(allApiData);
     setReadyForQuiz(true);
+    //START THE CLOCK BABY!
+    startTimer();
   }
 
   const saveAnswers = (qindex, answer) => {
@@ -63,6 +105,7 @@ const time = 80085;
   let answers = { ...finalAnswers };
   answers[qindex] = answer;
   setFinalAnswers(answers);
+
 }
 
 
@@ -77,6 +120,7 @@ const time = 80085;
             finalScore++;
       }
       setScore(finalScore);
+      pauseTimer();
     }
 
 //SEND SCORE / TIME TO DATABASE AND SHOW RESULTS MAYBE
@@ -88,7 +132,7 @@ console.log(res1.data)
     const body = JSON.stringify({
         userName: res1.data.user,
         userScore: finalScore,
-        userTime: time
+        userTime: quizTimer
     });
     
 //PASS IT AS A HEADER
@@ -100,11 +144,16 @@ console.log(res1.data)
     
     const res = await axios.post('/quizSubmit', body, config); 
     console.log(res.data)
+    console.log(`Here is the body: ${body}`);
 
-
-
-    console.log(`Here is the body: ${body}`);        
+    setQuizFinished(true);
 }
+
+const finishedQuizText = (`You scored ${score} which took ${quizTimer} seconds`)
+
+//THE FOLOWING IS USED TO REDIRECT USER TO SCOREBOARD AFTER THE QUIZ
+    // const history = useHistory();
+    // const redirectFinishQuiz = useCallback(() => history.push('/Scoreboard'), [history]);
 
   // console.log("Below state: allQuizdata");
   // console.log(allQuizData);
@@ -150,13 +199,18 @@ console.log(res1.data)
 // IF NOT - DISPLAY THE CHOOSE OPTIONS PAGE
         return (
           <div className="quizPlayForm">
-            {readyForQuiz ?
+            {readyForQuiz ? (quizFinished ? <p>{finishedQuizText}</p> :
                     <form onSubmit={finishQuiz}>
+                      <div className="timerDiv">
+                        <h3>QUIZ TIMER</h3>
+                        <p>{formatTime()}</p>
+                        </div>
                         <ul>
                             {questions}
                         </ul>
-                        <button type="submit">Finish Quiz</button>
+                        <button type="submit" >Finish Quiz</button>
                     </form>
+                  )
                 :
               <form className="quizChoiceForm" onSubmit={getAPI}>
                 <label>

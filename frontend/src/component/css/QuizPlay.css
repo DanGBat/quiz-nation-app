@@ -23,9 +23,34 @@ BLUE SWATCH      rgb(38, 77, 154);
 
 }
 
+p {
+    text-align: center;
+    font-size: 18pt;
+}
+
 ul, ol, li {
     list-style-type: none;
     padding-inline-start: 0px;
+}
+
+.timerDiv {
+    width: 100%;
+}
+
+.timerDiv h1 {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    text-align: center;
+    color: rgb(245, 179, 46);
+}
+
+
+
+.timerDiv h3 {
+    margin: 0;
+    padding-top: 20px;
+    text-align: center;
 }
 
 /* Customize the label (the container) */

@@ -3,30 +3,45 @@ YELLOW SWATCH    rgb(245, 179, 46);
 BLUE SWATCH      rgb(38, 77, 154);
 */
 
-.loginFormDiv {
+.profileDiv {
     width: 80%;
-    margin: 3% auto;
+    margin: 2% auto;
 }
 
-.loginFormDiv h1{
+img {
+    width: 80%;
+    margin: auto;
+}
+
+.profileBox {
+    width: 100%;
+}
+
+.profilePicture {
+    width: 50%;
+    float: left;
+}
+
+.profileInformation {
+    width: 50%;
+    float: left;
+}
+
+ h1 {
     text-align: center;
 }
 
-label {
-    margin-top: 20px;
-    color: rgb(38, 77, 154);
+h2, h3 {
+    text-align: left;
+    padding: 0px 20px;
 }
 
-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+p {
+    text-align: left;
+    font-size: 12pt;
+    padding: 0px 20px;
 }
-  
+
 button {
     width: 100%;
     background-color: rgb(245, 179, 46);
